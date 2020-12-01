@@ -357,7 +357,7 @@ static NSString * const receivePrefix = @"7e42=";
                 if([encryptionString hasPrefix:receivePrefix]){
                     encryptionString = [encryptionString stringByReplacingOccurrencesOfString:receivePrefix withString:@""];
                     NSString * string = [CocoaSecurity aesDecryptWithBase64:encryptionString key:kkkkkkkkkkey].utf8String;
-                    string = [string substringWithRange:NSMakeRange(receivePrefix.length, string.length-receivePrefix.length)];
+                    string = [string substringWithRange:NSMakeRange(sendPrefix.length, string.length-sendPrefix.length)];
                     addMsg.content.string = [NSString stringWithFormat:@"%@\n%@",msgArr[0],string
                                              ];
                 }
