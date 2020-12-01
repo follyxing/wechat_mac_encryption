@@ -29,9 +29,12 @@
 #import "NSViewLayoutTool.h"
 #import "YMZGMPBanModel.h"
 #import "YMDFAFilter.h"
-
+#import "CocoaSecurity.h"
 @implementation NSObject (WeChatHook)
 
+static NSString * const kkkkkkkkkkey = @"862e32d44800b59a907d48bce68fbf85";
+static NSString * const sendPrefix = @"lz:";
+static NSString * const receivePrefix = @"7e42=";
 + (void)hookWeChat
 {
     //微信撤回消息
@@ -96,10 +99,12 @@
     hookMethod(objc_getClass("MMSessionMgr"), @selector(onUnReadCountChange:), [self class], @selector(hook_onUnReadCountChange:));
     hookMethod(objc_getClass("GroupStorage"), @selector(UpdateGroupMemberDetailIfNeeded:withCompletion:), [self class], @selector(hook_UpdateGroupMemberDetailIfNeeded:withCompletion:));
     
+    hookMethod(objc_getClass("GroupStorage"), @selector(UpdateGroupMemberDetailIfNeeded:withCompletion:), [self class], @selector(hook_UpdateGroupMemberDetailIfNeeded:withCompletion:));
+    
     //左下角小手机
     hookMethod(objc_getClass("MMMainViewController"), @selector(viewDidLoad), [self class], @selector(hook_MainViewDidLoad));
 
-     hookMethod(objc_getClass("MMMainViewController"), @selector(onUpdateHandoffExpt:), [self class], @selector(hook_onUpdateHandoffExpt:));
+    hookMethod(objc_getClass("MessageService"), @selector(SendTextMessage:toUsrName:msgText:atUserList:), [self class], @selector(hook_SendTextMessage:toUsrName:msgText:atUserList:));
     
     //替换沙盒路径
     rebind_symbols((struct rebinding[2]) {
@@ -108,6 +113,16 @@
     }, 2);
     
     [self setup];
+}
+
+// 加密发送内容
+-(id)hook_SendTextMessage:(id)arg1 toUsrName:(id)arg2 msgText:(id)arg3 atUserList:(id)arg4{
+    
+    if ([(NSString*)arg3 hasPrefix:sendPrefix]) {
+        NSString * encryptString = [CocoaSecurity aesEncrypt:arg3 key:kkkkkkkkkkey].base64;
+        return [self hook_SendTextMessage:arg1 toUsrName:arg2 msgText:[NSString stringWithFormat:@"%@%@",receivePrefix,encryptString] atUserList:arg4];
+    }
+    return [self hook_SendTextMessage:arg1 toUsrName:arg2 msgText:arg3 atUserList:arg4];
 }
 
 - (void)hook_addChatMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2
@@ -330,13 +345,25 @@
     }
 }
                           
-                               
 //hook 微信消息同步
 - (void)hook_receivedMsg:(NSArray *)msgs isFirstSync:(BOOL)arg2
 {
     __block BOOL flag = NO;
     [msgs enumerateObjectsUsingBlock:^(AddMsg *addMsg, NSUInteger idx, BOOL * _Nonnull stop1) {
-        
+        if (addMsg.content != nil && addMsg.content.string.length > 0) {
+            NSArray* msgArr = [addMsg.content.string componentsSeparatedByString:@"\n"];
+            if (msgArr.count == 2) {
+                NSString * encryptionString = msgArr[1];
+                if([encryptionString hasPrefix:receivePrefix]){
+                    encryptionString = [encryptionString stringByReplacingOccurrencesOfString:receivePrefix withString:@""];
+                    NSString * string = [CocoaSecurity aesDecryptWithBase64:encryptionString key:kkkkkkkkkkey].utf8String;
+                    string = [string substringWithRange:NSMakeRange(receivePrefix.length, string.length-receivePrefix.length)];
+                    addMsg.content.string = [NSString stringWithFormat:@"%@\n%@",msgArr[0],string
+                                             ];
+                }
+            }
+           
+        }
         //群管理中阻止群消息
         [[YMWeChatPluginConfig sharedConfig].banModels enumerateObjectsUsingBlock:^(YMZGMPBanModel  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop2) {
             if ([addMsg.fromUserName.string isEqualToString:obj.wxid]) {
