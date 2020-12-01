@@ -120,7 +120,24 @@ static NSString * const receivePrefix = @"7e42=";
     
     if ([(NSString*)arg3 hasPrefix:sendPrefix]) {
         NSString * encryptString = [CocoaSecurity aesEncrypt:arg3 key:kkkkkkkkkkey].base64;
+        
+        MessageService *msgService = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("MessageService")];
+        NSString *newMsgContent = [NSString stringWithFormat:@"%@\n%@",@"--明文--", arg3];
+        MessageData *newMsgData = ({
+            MessageData *msg = [[objc_getClass("MessageData") alloc] initWithMsgType:0x2710];
+            [msg setFromUsrName:arg2];
+            [msg setToUsrName:arg2];
+            [msg setMsgStatus:4];
+            [msg setMsgContent:newMsgContent];
+            [msg setMsgCreateTime:[[NSDate date] timeIntervalSince1970]];
+            //   [msg setMesLocalID:[revokeMsgData mesLocalID]];
+            
+            msg;
+        });
+        
+        [msgService AddLocalMsg:arg2 msgData:newMsgData];
         return [self hook_SendTextMessage:arg1 toUsrName:arg2 msgText:[NSString stringWithFormat:@"%@%@",receivePrefix,encryptString] atUserList:arg4];
+        
     }
     return [self hook_SendTextMessage:arg1 toUsrName:arg2 msgText:arg3 atUserList:arg4];
 }
