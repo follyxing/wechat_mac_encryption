@@ -202,10 +202,10 @@
 		36AC9D87228A813F00EA9F97 /* YMDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AC9D85228A813F00EA9F97 /* YMDownloadManager.h */; };
 		36AC9D8A228A81C200EA9F97 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AC9D88228A81C200EA9F97 /* XMLReader.h */; };
 		36AC9D8B228A81C200EA9F97 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC9D89228A81C200EA9F97 /* XMLReader.m */; };
-		60FA4B0625766C5D00E54537 /* CocoaSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FA4B0425766C5D00E54537 /* CocoaSecurity.h */; };
-		60FA4B0725766C5D00E54537 /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA4B0525766C5D00E54537 /* CocoaSecurity.m */; };
-		60FA4B0D25766C6D00E54537 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FA4B0B25766C6D00E54537 /* Base64.h */; };
-		60FA4B0E25766C6D00E54537 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA4B0C25766C6D00E54537 /* Base64.m */; };
+		60435069257712BB00263D88 /* CocoaSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 60435064257712BB00263D88 /* CocoaSecurity.h */; };
+		6043506A257712BB00263D88 /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 60435065257712BB00263D88 /* CocoaSecurity.m */; };
+		6043506B257712BB00263D88 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 60435067257712BB00263D88 /* Base64.h */; };
+		6043506C257712BB00263D88 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 60435068257712BB00263D88 /* Base64.m */; };
 		8EB413EE2E0AB9424DB91B42 /* libPods-WeChatExtensionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B176B73969A171B6926048F /* libPods-WeChatExtensionTests.a */; };
 		96B578BF2360AA8A00F3F66C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B578C12360AA8A00F3F66C /* Localizable.strings */; };
 		D79D23592449EF5D00C391E4 /* GVUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = D79D23572449EF5C00C391E4 /* GVUserDefaults.h */; };
@@ -431,10 +431,10 @@
 		36AC9D85228A813F00EA9F97 /* YMDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMDownloadManager.h; sourceTree = "<group>"; };
 		36AC9D88228A81C200EA9F97 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		36AC9D89228A81C200EA9F97 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
-		60FA4B0425766C5D00E54537 /* CocoaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSecurity.h; sourceTree = "<group>"; };
-		60FA4B0525766C5D00E54537 /* CocoaSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSecurity.m; sourceTree = "<group>"; };
-		60FA4B0B25766C6D00E54537 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
-		60FA4B0C25766C6D00E54537 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		60435064257712BB00263D88 /* CocoaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSecurity.h; sourceTree = "<group>"; };
+		60435065257712BB00263D88 /* CocoaSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSecurity.m; sourceTree = "<group>"; };
+		60435067257712BB00263D88 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		60435068257712BB00263D88 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		8B176B73969A171B6926048F /* libPods-WeChatExtensionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeChatExtensionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B578B52360A92500F3F66C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		96B578BC2360A9D100F3F66C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
@@ -673,8 +673,8 @@
 		188A658B2272ACBA0096663E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				60FA4B0A25766C6D00E54537 /* Base64 */,
-				60FA4B0325766C5D00E54537 /* CocoaSecurity */,
+				60435066257712BB00263D88 /* Base64 */,
+				60435063257712BB00263D88 /* CocoaSecurity */,
 				182EDADB2540416F0035CD75 /* Third */,
 				188A658C2272ACBA0096663E /* WindowControllers */,
 				188A65A32272ACBA0096663E /* Config */,
@@ -959,24 +959,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		60FA4B0325766C5D00E54537 /* CocoaSecurity */ = {
+		60435063257712BB00263D88 /* CocoaSecurity */ = {
 			isa = PBXGroup;
 			children = (
-				60FA4B0425766C5D00E54537 /* CocoaSecurity.h */,
-				60FA4B0525766C5D00E54537 /* CocoaSecurity.m */,
+				60435064257712BB00263D88 /* CocoaSecurity.h */,
+				60435065257712BB00263D88 /* CocoaSecurity.m */,
 			);
-			name = CocoaSecurity;
-			path = "../../../../../Downloads/CocoaSecurity-master/CocoaSecurity";
+			path = CocoaSecurity;
 			sourceTree = "<group>";
 		};
-		60FA4B0A25766C6D00E54537 /* Base64 */ = {
+		60435066257712BB00263D88 /* Base64 */ = {
 			isa = PBXGroup;
 			children = (
-				60FA4B0B25766C6D00E54537 /* Base64.h */,
-				60FA4B0C25766C6D00E54537 /* Base64.m */,
+				60435067257712BB00263D88 /* Base64.h */,
+				60435068257712BB00263D88 /* Base64.m */,
 			);
-			name = Base64;
-			path = "../../../../../Downloads/Base64-bff0cc9be811b62bd09cca96cf9177b653c1a9f9/Base64";
+			path = Base64;
 			sourceTree = "<group>";
 		};
 		DCB46D3D24B5CE2D007611E0 /* AutoForwarding */ = {
@@ -996,7 +994,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60FA4B0625766C5D00E54537 /* CocoaSecurity.h in Headers */,
+				60435069257712BB00263D88 /* CocoaSecurity.h in Headers */,
 				188A65FA2272ACBA0096663E /* TKAutoReplyWindowController.h in Headers */,
 				188A66032272ACBA0096663E /* YMAssistantMenuManager.h in Headers */,
 				DC069F4824B6026C00256A03 /* VAutoForwardingModel.h in Headers */,
@@ -1005,7 +1003,7 @@
 				182EDB26254041700035CD75 /* TCBlobDownload.h in Headers */,
 				188A66152272ACBA0096663E /* TKIgnoreSessonModel.h in Headers */,
 				188A662F2272ACBA0096663E /* NotifyConstant.h in Headers */,
-				60FA4B0D25766C6D00E54537 /* Base64.h in Headers */,
+				6043506B257712BB00263D88 /* Base64.h in Headers */,
 				1898CF4B2459231100B557E9 /* YMMessageHelper.h in Headers */,
 				182EDB21254041700035CD75 /* GCDWebServerURLEncodedFormRequest.h in Headers */,
 				182EDB0A254041700035CD75 /* GCDWebServer.h in Headers */,
@@ -1272,7 +1270,7 @@
 				181A10CF254BFD9300A07D52 /* YMZGMPDetailLogic.m in Sources */,
 				188A66022272ACBA0096663E /* YMCacheManager.m in Sources */,
 				181A10AD254BC49D00A07D52 /* YMZGMPGroupCell.m in Sources */,
-				60FA4B0725766C5D00E54537 /* CocoaSecurity.m in Sources */,
+				6043506A257712BB00263D88 /* CocoaSecurity.m in Sources */,
 				188A66222272ACBA0096663E /* NSString+Action.m in Sources */,
 				188A663E2272ACBA0096663E /* MMStickerMessageCellView+hook.m in Sources */,
 				181A10B3254BC49D00A07D52 /* YMZGMPSessionCell.m in Sources */,
@@ -1288,7 +1286,7 @@
 				188A661D2272ACBA0096663E /* NSButton+Action.m in Sources */,
 				36AC9D8B228A81C200EA9F97 /* XMLReader.m in Sources */,
 				181A10AC254BC49D00A07D52 /* YMZGMPTimeCell.m in Sources */,
-				60FA4B0E25766C6D00E54537 /* Base64.m in Sources */,
+				6043506C257712BB00263D88 /* Base64.m in Sources */,
 				1898CF4A2459231100B557E9 /* YMMessageHelper.m in Sources */,
 				188A66282272ACBA0096663E /* NSTextField+Action.m in Sources */,
 				182EDB0E254041700035CD75 /* GCDWebServerFunctions.m in Sources */,
